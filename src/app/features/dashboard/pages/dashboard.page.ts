@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserTableComponent } from '../components/tables/user-table/user-table.component';
-import { HeaderComponent } from '../components/header/header.component';
+import { UserTableComponent } from '../components/user-table/user-table.component';
+import { HeaderComponent } from '../../../shared/components/header/header.component';
 
 
 @Component({
