@@ -4,7 +4,7 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
 
 
 @Component({
-  selector: 'dashboard-page',
+  selector: 'app-dashboard-page',
   imports: [HeaderComponent, UserTableComponent],
   templateUrl: './dashboard.page.html',
   styleUrl: './dashboard.page.scss',
