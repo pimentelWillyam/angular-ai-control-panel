@@ -2,10 +2,11 @@ import { Component, Inject } from "@angular/core"
 import { MatButton } from "@angular/material/button"
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from "@angular/material/dialog"
 import { User } from "../../models/User.model"
+import { AiServicesTableComponent } from "../tables/ai-services-table/ai-services-table.component"
 
 @Component({
     selector: 'app-edit-user-modal',
-    imports: [MatDialogModule, MatButton],
+    imports: [MatDialogModule, MatButton, AiServicesTableComponent],
     templateUrl: './edit-user-modal.component.html',
     styleUrl: './edit-user-modal.component.scss',
     standalone: true
