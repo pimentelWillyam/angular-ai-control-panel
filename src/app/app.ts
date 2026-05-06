@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core'
+import { RouterOutlet } from '@angular/router'
 
 
 @Component({
@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   standalone: true
 })
 export class App {
-  protected readonly title = signal('angular-ai-control-panel');
+  protected readonly title = signal('angular-ai-control-panel')
 }
