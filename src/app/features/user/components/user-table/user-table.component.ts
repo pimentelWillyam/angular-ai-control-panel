@@ -7,7 +7,7 @@ import { EditUserModalComponent } from "../edit-user-modal/edit-user-modal.compo
 
 @Component({
     selector: 'app-user-table',
-    imports: [CommonModule, MatTableModule, MatButtonModule, EditUserModalComponent],
+    imports: [CommonModule, MatTableModule, MatButtonModule],
     templateUrl: './user-table.component.html',
     styleUrl: './user-table.component.scss',
     standalone: true
