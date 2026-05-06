@@ -1,0 +1,26 @@
+<div class="ai-services-table">
+  <table mat-table [dataSource]="aiServices" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="aiServiceName">
+      <th mat-header-cell *matHeaderCellDef> Service </th>
+      <td mat-cell *matCellDef="let aiService"> {{aiService.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th class="action-user-table-col" mat-header-cell *matHeaderCellDef> </th>
+
+      <td mat-cell *matCellDef="let user">
+        <div class="action-user-buttons-container">
+          <button mat-flat-button color="primary" (click)="editUser(user)">
+            Edit
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'role', 'action']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name', 'role', 'action'];"></tr>
+
+  </table>
+</div>
+
