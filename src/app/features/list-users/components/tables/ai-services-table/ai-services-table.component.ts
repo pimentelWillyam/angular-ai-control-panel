@@ -2,9 +2,7 @@ import { Component } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { MatTableModule } from '@angular/material/table'
 import { MatButtonModule } from "@angular/material/button"
-import { MatDialog } from "@angular/material/dialog"
-import { EditUserModalComponent } from "../../edit-user-modal/edit-user-modal.component"
-import { User } from "../../../models/User.model"
+import { User } from "../../../../../shared/models/User.model"
 
 @Component({
     selector: 'app-ai-services-table',
@@ -15,15 +13,10 @@ import { User } from "../../../models/User.model"
 })
 
 export class AiServicesTableComponent {
-    constructor(private readonly dialog: MatDialog) {}
 
     private openEditUserModal(user: User) {
         console.log('Open edit user modal for:', user)
-        this.dialog.open(EditUserModalComponent, {
-            minWidth: '50%',
-            minHeight: '50%',
-            data: user,
-        })
+
     }
     aiServices = [
         { id: 1, name: 'John Doe', role: 'User', email: "john.doe@example.com" },

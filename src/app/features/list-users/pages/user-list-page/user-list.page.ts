@@ -1,11 +1,11 @@
 import { Component } from '@angular/core'
-import { UserTableComponent } from '../../components/tables/user-table/user-table.component'
+import { ListUserTableComponent } from '../../components/tables/user-table/list-user-table.component'
 import { HeaderComponent } from '../../../../shared/components/header/header.component'
 
 
 @Component({
   selector: 'app-user-list',
-  imports: [HeaderComponent, UserTableComponent],
+  imports: [HeaderComponent, ListUserTableComponent],
   templateUrl: './user-list.page.html',
   styleUrl: './user-list.page.scss',
   standalone: true
