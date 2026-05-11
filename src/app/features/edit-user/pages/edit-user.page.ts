@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { HeaderComponent } from "../../../shared/components/header/header.component";
 import { EditUserTableComponent } from "../components/edit-user-table/edit-user-table.component";
-import { routes } from "../../../app.routes";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: 'app-edit-user',
@@ -12,16 +12,16 @@ import { routes } from "../../../app.routes";
 })
 export class EditUserPage implements OnInit {
     userName: string
+    private route = inject(ActivatedRoute)
     constructor(){
-    this.userName = 'aaa'
+    this.userName = this.route.snapshot.paramMap.get('id')?.toString() || 'Unknown User';
 
     }
 
     ngOnInit(){
         console.log('hello')
-        this.route.paraMap.subscribe(params => {
-            const id = params.get('id')
-        })
+        const id = this.route.snapshot.paramMap.get('id');
+        console.log('id', id)
     }
 }
 
