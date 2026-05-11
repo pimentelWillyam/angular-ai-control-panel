@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router'
 import { UserListPage } from './features/list-users/pages/user-list-page/user-list.page'
+import { EditUserPage } from './features/edit-user/pages/edit-user.page'
 
 export const routes: Routes = [
     {path: '', title: 'User List', component: UserListPage},
