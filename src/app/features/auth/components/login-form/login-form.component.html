@@ -1,0 +1,50 @@
+<div class="container">
+  <mat-card>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="form-fields">
+        <mat-form-field appearance="outline">
+          <mat-label>Login</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="login"
+            placeholder="Enter your login"
+          >
+
+          @if (loginForm.controls.login.hasError('required')) {
+            <mat-error>Login is required</mat-error>
+          }
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          >
+
+          @if (loginForm.controls.password.hasError('required')) {
+            <mat-error>Password is required</mat-error>
+          }
+
+        </mat-form-field>
+
+      </div>
+
+      <div class="submit-button">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+        >
+          Login
+        </button>
+      </div>
+
+    </form>
+  </mat-card>
+</div>
