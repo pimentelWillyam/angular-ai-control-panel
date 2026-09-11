@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { MatAnchor } from "@angular/material/button";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-header',
@@ -10,8 +11,12 @@ import { MatAnchor } from "@angular/material/button";
 })
 
 export class HeaderComponent {
+
+    private injectedRouter = inject(Router)
+
     logout() {
         console.log('Logout clicked');
+        this.injectedRouter.navigate(['/']);
     }
 }
 
