@@ -1,8 +1,10 @@
-import { Component } from "@angular/core"
+import { Component, inject, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { MatTableModule } from '@angular/material/table'
 import { MatButtonModule } from "@angular/material/button"
 import { User } from "../../../../../shared/models/User.model"
+import { HttpClient } from "@angular/common/http"
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
     selector: 'app-list-user-table',
@@ -12,18 +14,48 @@ import { User } from "../../../../../shared/models/User.model"
     standalone: true
 })
 
-export class ListUserTableComponent {
-    users: User[] = [
-        { id: "1", login: 'John Doe', createdAt: new Date('2023-01-02'), password: '123', updatedAt: new Date('2023-01-02'), email: "john.doe@example.com" },
-        { id: "2", login: 'Jane Smith', createdAt: new Date('2023-01-02'), password: '456', updatedAt: new Date('2023-01-02'), email: "jane.smith@example.com" }
-    ]
+export class ListUserTableComponent implements OnInit {
+    dataSource = new MatTableDataSource<User>()
+
+    ngOnInit(){
+        this.fetchUsers()
+    }
+
+    private http = inject(HttpClient)
+
+    private fetchUsers() {
+
+        this.http.get<User[]>('http://localhost:3000/user').subscribe({
+            next: (response) => {
+                console.log('Users fetched successfully:', response);
+                this.dataSource.data = response
+            },
+            error: (error) => {
+                console.error('Failed to fetch users:', error);
+                alert('Failed to fetch users. Please try again later.');
+            }
+        });
+    }
+
 
     editUser(user: User) {
-        console.log('Edit user:', user)
+        console.log('Editing user....')
+        if (this.dataSource.data.findIndex(u => u.id === user.id) === -1) {
+            console.log('User not found')
+            alert('User not found')
+            return
+        }
+        console.log('Editing user:', user)
+
     }
 
     removeUser(user: User) {
-        console.log('Remove user:', user)
+        if (this.dataSource.data.findIndex(u => u.id === user.id) === -1) {
+            console.log('User not found')
+            alert('User not found')
+            return
+        }
+        this.dataSource.data = this.dataSource.data.filter(u => u.id !== user.id)
     }
 
 
