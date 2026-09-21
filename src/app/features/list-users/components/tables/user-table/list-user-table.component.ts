@@ -5,10 +5,11 @@ import { MatButtonModule } from "@angular/material/button"
 import { User } from "../../../../../shared/models/User.model"
 import { HttpClient } from "@angular/common/http"
 import {MatTableDataSource} from "@angular/material/table";
+import { EditUserModalComponent } from "../../../../edit-user/components/edit-user-modal/edit-user-modal.component"
 
 @Component({
     selector: 'app-list-user-table',
-    imports: [CommonModule, MatTableModule, MatButtonModule],
+    imports: [CommonModule, EditUserModalComponent, MatTableModule, MatButtonModule],
     templateUrl: './list-user-table.component.html',
     styleUrl: './list-user-table.component.scss',
     standalone: true

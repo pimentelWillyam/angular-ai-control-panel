@@ -1,4 +1,7 @@
 <div class="user-table-container">
+
+  <app-edit-user-modal></app-edit-user-modal>
+
   <table mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="name">
@@ -21,7 +24,7 @@
           </button>
 
           <button mat-flat-button color="warn" (click)="removeUser(user)">
-            Remove
+            Remover
           </button>
         </div>
       </td>
