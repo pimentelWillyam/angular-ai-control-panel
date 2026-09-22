@@ -3,7 +3,7 @@ import { User } from "../../../../shared/models/User.model"
 
 @Component({
     selector: 'app-edit-user-modal',
-    imports: [Component],
+    imports: [],
     templateUrl: './edit-user-modal.component.html',
     styleUrl: './edit-user-modal.component.scss',
     standalone: true
