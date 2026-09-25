@@ -1,0 +1,10 @@
+<form 
+    class="edit-user-form"
+    [formGroup]="userForm"
+    (ngSubmit)="submit()">
+</form>
+
+<mat-form-field appearance="outline">
+    <mat-label>Login</mat-label>
+    <mat-input formControlName="login"></mat-input>
+</mat-form-field>
