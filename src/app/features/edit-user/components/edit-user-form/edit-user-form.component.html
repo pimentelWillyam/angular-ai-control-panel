@@ -1,10 +1,29 @@
-<form 
+<form class="edit-user-form"
     class="edit-user-form"
     [formGroup]="userForm"
     (ngSubmit)="submit()">
+
+    <mat-form-field class="edit-user-form-field" appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput formControlName="login"/>
+    </mat-form-field>
+
+    <mat-form-field class="edit-user-form-field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email"/>
+    </mat-form-field>
+
+    <mat-form-field class="edit-user-form-field" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password"/>
+    </mat-form-field>
+
+    <mat-form-field class="edit-user-form-field" appearance="outline">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="role"/>
+    </mat-form-field>
+
+    <button class="edit-user-form-button" mat-raised-button color="primary" type="submit">Save</button>
+
 </form>
 
-<mat-form-field appearance="outline">
-    <mat-label>Login</mat-label>
-    <mat-input formControlName="login"></mat-input>
-</mat-form-field>
