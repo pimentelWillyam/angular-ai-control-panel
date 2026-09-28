@@ -3,14 +3,16 @@ import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { MatDialogClose } from "@angular/material/dialog";
 @Component({
     selector: 'app-edit-user-form',
     imports: [
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-    ],
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogClose
+],
     templateUrl: './edit-user-form.component.html',
     styleUrl: './edit-user-form.component.scss',
     standalone: true
@@ -30,5 +32,6 @@ export class EditUserFormComponent {
             this.userForm.markAllAsTouched()
             return
         }
+        console.log(this.userForm.value)
     }
 }
