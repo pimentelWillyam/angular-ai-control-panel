@@ -19,6 +19,10 @@ import { MatDialogClose } from "@angular/material/dialog";
 })
 
 export class EditUserFormComponent {
+export class EditUserFormComponent implements OnChanges {
+
+    @Input() user!: User
+
     private formBuilder = inject(FormBuilder)
     userForm = this.formBuilder.group({
         login: ['', Validators.required],
