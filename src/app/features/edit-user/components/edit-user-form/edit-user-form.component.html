@@ -20,7 +20,10 @@
 
     <mat-form-field class="edit-user-form-field" appearance="outline">
         <mat-label>Role</mat-label>
-        <input matInput formControlName="role"/>
+        <mat-select matInput formControlName="role">
+            <mat-option value="user">User</mat-option>
+            <mat-option value="admin">Admin</mat-option>
+        </mat-select>
     </mat-form-field>
 
     <button class="edit-user-form-button" mat-raised-button color="primary" type="submit">Save</button>
