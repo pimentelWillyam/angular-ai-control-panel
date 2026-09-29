@@ -57,11 +57,14 @@ export class ListUserTableComponent implements OnInit {
         }
 
         const dialogRef = this.dialog.open(EditUserDialogComponent, {
-            width: '500px',
+            width: '30%',
+            minWidth: '300px',
+            maxWidth: '400px',
             data: user
         });
 
         dialogRef.afterClosed().subscribe(result => {
+            console.log('User: ', user);
             if (result) {
                 console.log('Dialog result:', result);
 
