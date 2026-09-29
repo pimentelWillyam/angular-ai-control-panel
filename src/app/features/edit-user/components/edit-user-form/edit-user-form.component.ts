@@ -31,7 +31,21 @@ export class EditUserFormComponent implements OnChanges {
         role: ['', Validators.required]
     })
 
+    ngOnChanges(changes: SimpleChanges): void {
+        console.log('Changes:', changes)
+        if (changes['user'] && changes['user'].currentValue) {
+            this.userForm.patchValue({
+                login: this.user.login,
+                email: this.user.email,
+                password: this.user.password,
+                role: this.user.role
+            });
+        }
+    }
+
     submit(): void {
+    console.log('User:', this.user)
+
         if (this.userForm.valid){
             this.userForm.markAllAsTouched()
             return
