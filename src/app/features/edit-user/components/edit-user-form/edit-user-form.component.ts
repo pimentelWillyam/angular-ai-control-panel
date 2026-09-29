@@ -19,7 +19,6 @@ import { User } from "../../../../shared/models/User.model";
     standalone: true
 })
 
-export class EditUserFormComponent {
 export class EditUserFormComponent implements OnChanges {
 
     @Input() user!: User
