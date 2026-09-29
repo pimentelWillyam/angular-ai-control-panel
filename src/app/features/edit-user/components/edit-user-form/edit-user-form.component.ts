@@ -1,9 +1,10 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, Input, SimpleChanges, OnChanges } from "@angular/core";
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { MatDialogClose } from "@angular/material/dialog";
+import {MatSelectModule} from "@angular/material/select";
+import { User } from "../../../../shared/models/User.model";
 @Component({
     selector: 'app-edit-user-form',
     imports: [
@@ -11,7 +12,7 @@ import { MatDialogClose } from "@angular/material/dialog";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogClose
+    MatSelectModule
 ],
     templateUrl: './edit-user-form.component.html',
     styleUrl: './edit-user-form.component.scss',
