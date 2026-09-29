@@ -11,4 +11,8 @@ import { EditUserFormComponent } from "../edit-user-form/edit-user-form.componen
 
 export class EditUserDialogComponent {
 
+    user = inject<User>(MAT_DIALOG_DATA);
+
+    
+
 }
