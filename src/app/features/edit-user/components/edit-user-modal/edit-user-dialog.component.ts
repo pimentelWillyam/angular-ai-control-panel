@@ -1,5 +1,7 @@
-import { Component } from "@angular/core"
+import { Component, inject } from "@angular/core"
 import { EditUserFormComponent } from "../edit-user-form/edit-user-form.component";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { User } from "../../../../shared/models/User.model";
 
 @Component({
     selector: 'app-edit-user-dialog',
