@@ -3,9 +3,9 @@ export interface User {
   email: string
   login: string
   password: string
-  role: string
+  role: Role
   createdAt: Date
   updatedAt: Date
 }
 
-type Role: 
+type Role = 'Admin' | 'User'
