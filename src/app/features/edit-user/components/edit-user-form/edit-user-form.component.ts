@@ -5,6 +5,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import { User } from "../../../../shared/models/User.model";
+import { HttpClient } from "@angular/common/http";
 @Component({
     selector: 'app-edit-user-form',
     imports: [
@@ -27,9 +28,13 @@ export class EditUserFormComponent implements OnChanges {
     userForm = this.formBuilder.group({
         login: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
         role: ['', Validators.required]
     })
+
+    private http = inject(HttpClient)
+    private apiUrl = 'http://localhost:3000/user'
+
+
 
     ngOnChanges(changes: SimpleChanges): void {
         console.log('Changes:', changes)
@@ -37,7 +42,6 @@ export class EditUserFormComponent implements OnChanges {
             this.userForm.patchValue({
                 login: this.user.login,
                 email: this.user.email,
-                password: this.user.password,
                 role: this.user.role
             });
         }
@@ -45,11 +49,20 @@ export class EditUserFormComponent implements OnChanges {
 
     submit(): void {
     console.log('User:', this.user)
-
-        if (this.userForm.valid){
+    console.log('caiu no submit')
+        if (!this.userForm.valid){
             this.userForm.markAllAsTouched()
             return
         }
+
+
+        const url = `http://localhost:3000/user/${this.user.id}`;
+        console.log('URL da requisição:', url);
+
+        this.http.patch<User>(`${this.apiUrl}/${this.user.id}`, this.userForm.value).subscribe({
+            
+        })
         console.log(this.userForm.value)
+
     }
 }
