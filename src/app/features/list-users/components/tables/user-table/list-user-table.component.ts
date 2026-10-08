@@ -20,6 +20,7 @@ import { UserRemover } from "../../../../remove-user/helper/UserRemover";
         MatButtonModule,
         MatDialogModule,
     ],
+    providers: [NormalizeRole, UserRemover],
     templateUrl: './list-user-table.component.html',
     styleUrl: './list-user-table.component.scss',
 })
