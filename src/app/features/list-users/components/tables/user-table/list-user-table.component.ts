@@ -8,6 +8,7 @@ import { MatTableDataSource } from "@angular/material/table";
 
 import { User } from "../../../../../shared/models/User.model";
 import { EditUserDialogComponent } from "../../../../edit-user/components/edit-user-modal/edit-user-dialog.component";
+import { NormalizeRole } from "../../../../../shared/helpers/NormalizeRole";
 import { UserRemover } from "../../../../remove-user/helper/UserRemover";
 
 @Component({
@@ -17,7 +18,7 @@ import { UserRemover } from "../../../../remove-user/helper/UserRemover";
         CommonModule,
         MatTableModule,
         MatButtonModule,
-        MatDialogModule
+        MatDialogModule,
     ],
     templateUrl: './list-user-table.component.html',
     styleUrl: './list-user-table.component.scss',
@@ -29,6 +30,7 @@ export class ListUserTableComponent implements OnInit {
     private http = inject(HttpClient);
     private dialog = inject(MatDialog);
     private userRemover = inject(UserRemover);
+    normalizeRole = inject(NormalizeRole);
 
     ngOnInit() {
         this.fetchUsers();
