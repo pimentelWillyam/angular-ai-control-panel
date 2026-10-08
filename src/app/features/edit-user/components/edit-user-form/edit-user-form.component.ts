@@ -57,6 +57,12 @@ export class EditUserFormComponent implements OnChanges {
             this.userForm.markAllAsTouched()
             return
         }
+        try {
+            this.http.patch<User>(`${this.apiUrl}/${this.user.id}`, this.userForm.value).subscribe({
+                next: (updatedUser) => {
+                    console.log('User updated successfully:', updatedUser);
+                    this.dialogRef.close(updatedUser);
+                    alert('User updated successfully.');
 
 
         const url = `http://localhost:3000/user/${this.user.id}`;
