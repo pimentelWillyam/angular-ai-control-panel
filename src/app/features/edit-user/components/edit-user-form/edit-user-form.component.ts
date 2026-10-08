@@ -65,13 +65,5 @@ export class EditUserFormComponent implements OnChanges {
                     alert('User updated successfully.');
 
 
-        const url = `http://localhost:3000/user/${this.user.id}`;
-        console.log('URL da requisição:', url);
-
-        this.http.patch<User>(`${this.apiUrl}/${this.user.id}`, this.userForm.value).subscribe({
-            
-        })
-        console.log(this.userForm.value)
-
     }
 }
