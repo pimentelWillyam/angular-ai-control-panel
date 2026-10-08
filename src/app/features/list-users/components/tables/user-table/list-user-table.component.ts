@@ -8,6 +8,7 @@ import { MatTableDataSource } from "@angular/material/table";
 
 import { User } from "../../../../../shared/models/User.model";
 import { EditUserDialogComponent } from "../../../../edit-user/components/edit-user-modal/edit-user-dialog.component";
+import { UserRemover } from "../../../../remove-user/helper/UserRemover";
 
 @Component({
     selector: 'app-list-user-table',
@@ -27,6 +28,7 @@ export class ListUserTableComponent implements OnInit {
 
     private http = inject(HttpClient);
     private dialog = inject(MatDialog);
+    private userRemover = inject(UserRemover);
 
     ngOnInit() {
         this.fetchUsers();
@@ -77,7 +79,7 @@ export class ListUserTableComponent implements OnInit {
 
     removeUser(user: User) {
         const userExists = this.dataSource.data.some(
-            u => u.id === user.id
+            u => u.login === user.login
         );
 
         if (!userExists) {
@@ -85,9 +87,14 @@ export class ListUserTableComponent implements OnInit {
             alert('User not found');
             return;
         }
+        try {
+            this.userRemover.execute(user.id);
+            this.dataSource.data = this.dataSource.data.filter(u => u.id !== user.id)
+        } catch (error) {
+            console.error('Failed to remove user:', error);
+            alert('Failed to remove user. Please try again later.');
+        }
 
-        this.dataSource.data = this.dataSource.data.filter(
-            u => u.id !== user.id
-        );
+
     }
 }
