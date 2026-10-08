@@ -6,6 +6,7 @@ import { MatInputModule } from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import { User } from "../../../../shared/models/User.model";
 import { HttpClient } from "@angular/common/http";
+import { MatDialogRef } from "@angular/material/dialog";
 @Component({
     selector: 'app-edit-user-form',
     imports: [
@@ -30,6 +31,8 @@ export class EditUserFormComponent implements OnChanges {
         email: ['', [Validators.required, Validators.email]],
         role: ['', Validators.required]
     })
+
+    private dialogRef = inject(MatDialogRef<User>)
 
     private http = inject(HttpClient)
     private apiUrl = 'http://localhost:3000/user'
