@@ -64,6 +64,16 @@ export class EditUserFormComponent implements OnChanges {
                     this.dialogRef.close(updatedUser);
                     alert('User updated successfully.');
 
+                },
+                error: (error) => {
+                    console.error('Failed to update user:', error);
+                    alert('Failed to update user. Please try again later.');
+                }
+            });
+        } catch (error) {
+            console.error('Unexpected error occurred:', error);
+            alert('An unexpected error occurred. Please try again later.');
+        }
 
     }
 }
