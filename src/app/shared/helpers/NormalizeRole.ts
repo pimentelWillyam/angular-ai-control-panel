@@ -11,3 +11,4 @@ export class NormalizeRole {
         throw new Error(`Invalid role: ${role}`);
 
     }
+}
