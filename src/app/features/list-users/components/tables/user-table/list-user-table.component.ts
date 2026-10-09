@@ -92,8 +92,10 @@ export class ListUserTableComponent implements OnInit {
         }
         try {
             this.userRemover.execute(user.id);
+            console.log('user removed successfully');
             this.dataSource.data = this.dataSource.data.filter(u => u.id !== user.id)
         } catch (error) {
+            console.error('Failed to remove user:', error);
             console.error('Failed to remove user:', error);
             alert('Failed to remove user. Please try again later.');
         }
