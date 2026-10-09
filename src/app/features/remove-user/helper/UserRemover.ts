@@ -1,11 +1,16 @@
-import { HttpClient } from "@angular/common/http";
-import { inject } from "@angular/core";
 
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
+
+@Injectable({
+    providedIn: 'root'
+})
 export class UserRemover {
+    private readonly http = inject(HttpClient);
+    private readonly apiUrl = 'http://localhost:3000/user';
+
     execute(userId: string): void {
-        const apiUrl = 'http://localhost:3000/user';
-        const http = inject(HttpClient);
-        http.delete(`${apiUrl}/${userId}`).subscribe({
+        this.http.delete(`${this.apiUrl}/${userId}`).subscribe({
             next: () => {
                 console.log('User removed successfully.');
                 alert('User removed successfully.');
@@ -14,6 +19,6 @@ export class UserRemover {
                 console.error('Failed to remove user:', error);
                 alert('Failed to remove user. Please try again later.');
             }
-        })
+        });
     }
 }
