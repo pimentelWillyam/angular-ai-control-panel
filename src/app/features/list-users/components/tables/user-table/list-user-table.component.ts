@@ -10,16 +10,18 @@ import { User } from "../../../../../shared/models/User.model";
 import { EditUserDialogComponent } from "../../../../edit-user/components/edit-user-modal/edit-user-dialog.component";
 import { NormalizeRole } from "../../../../../shared/helpers/NormalizeRole";
 import { UserRemover } from "../../../../remove-user/helper/UserRemover";
+import { CreateUserFormComponent } from "../../../../create-user/components/create-user-form/create-user-form.component";
 
 @Component({
     selector: 'app-list-user-table',
     standalone: true,
     imports: [
-        CommonModule,
-        MatTableModule,
-        MatButtonModule,
-        MatDialogModule,
-    ],
+    CommonModule,
+    MatTableModule,
+    MatButtonModule,
+    MatDialogModule,
+    CreateUserFormComponent
+],
     providers: [NormalizeRole, UserRemover],
     templateUrl: './list-user-table.component.html',
     styleUrl: './list-user-table.component.scss',
